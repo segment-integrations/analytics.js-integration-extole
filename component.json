@@ -2,7 +2,7 @@
   "name": "analytics.js-integration-extole",
   "repo": "segment-integrations/analytics.js-integration-extole",
   "description": "The Extole analytics.js integration.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "lib/index.js",
   "dependencies": {
