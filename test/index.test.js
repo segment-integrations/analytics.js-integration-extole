@@ -1,11 +1,11 @@
 'use strict';
 
-var Analytics = require('analytics.js-core').constructor;
-var each = require('each');
-var integration = require('analytics.js-integration');
+var Analytics = require('@segment/analytics.js-core').constructor;
+var each = require('@ndhoule/each');
+var integration = require('@segment/analytics.js-integration');
 var Extole = require('../lib/');
-var sandbox = require('clear-env');
-var tester = require('analytics.js-integration-tester');
+var sandbox = require('@segment/clear-env');
+var tester = require('@segment/analytics.js-integration-tester');
 
 describe('Extole', function() {
   var extole;
@@ -181,7 +181,7 @@ function messageListenerOff() {
     var windowEvents = $._data($(window)[0], 'events');
 
     if (windowEvents) {
-      each(windowEvents.message, function(msgEvent) {
+      each(function(msgEvent) {
         var msgNamespace;
         if (msgEvent.namespace && msgEvent.namespace.match) {
           msgNamespace = msgEvent.namespace.match(/^view\d+$/);
@@ -189,7 +189,7 @@ function messageListenerOff() {
             $(window).off('message.' + msgNamespace);
           }
         }
-      });
+      }, windowEvents.message);
     }
   });
 }
